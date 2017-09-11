@@ -254,11 +254,8 @@ class SvgUri extends Component{
     if (node.childNodes && node.childNodes.length > 0){
         for (let i = 0; i < node.childNodes.length; i++){
           const isTextValue = node.childNodes[i].nodeValue
-          if (
-            isTextValue &&
-            (node.nodeName == "text" || node.nodeName == "tspan")
-          ) {
-              arrayElements.push(node.childNodes[i].nodeValue)
+          if (isTextValue) {
+            (node.nodeName == "text" || node.nodeName == "tspan") && arrayElements.push(node.childNodes[i].nodeValue)
           } else {
             const nodo = this.inspectNode(node.childNodes[i]);
             if (nodo != null) {
